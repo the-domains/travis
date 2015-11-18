@@ -6,8 +6,8 @@ inLanguage: null
 starred: false
 keywords: []
 description: 'Technology, Innovation, and Leadership'
-datePublished: '2015-11-18T19:36:23.470Z'
-dateModified: '2015-11-18T19:35:20.570Z'
+datePublished: '2015-11-18T21:34:02.520Z'
+dateModified: '2015-11-18T21:33:57.191Z'
 title: About Travis
 sourcePath: _posts/2015-11-18-about-travis.md
 published: true
