@@ -1,0 +1,23 @@
+name: Travis
+favicon: null
+layout_spectrum: 0.5638136251363903
+typography_spectrum: 0.06227169465273619
+cta:
+  domain: null
+  bucket: null
+  version: null
+analytics:
+  google: null
+  facebook: null
+  twitter: null
+opengraph:
+  image: null
+  type: null
+  appId: null
+color:
+  brandColors: []
+  brandStrength: 0.8282652385532856
+  lightness: 0.19877522415481508
+  saturation: 0.2842965782620013
+  rhythmicContrast: 0.8756023768801242
+purpose: []
