@@ -1,7 +1,7 @@
 name: Travis
 favicon: null
 layout_spectrum: 0.74161
-typography_spectrum: 0.8337
+typography_spectrum: 0.69225
 title: 'Designing the future of Tech, Energy, National Security, and Advanced Manufacturing'
 cta:
   domain: null
@@ -22,8 +22,8 @@ color:
     - '#7f9f5c'
     - '#415063'
     - '#ff754f'
-  brandStrength: 0.5
-  lightness: 0.19877522415481508
-  saturation: 0.2842965782620013
-  rhythmicContrast: 0.8756023768801242
+  brandStrength: 0.75
+  lightness: 0.9375
+  saturation: 0.25
+  rhythmicContrast: 0.75
 purpose: []
