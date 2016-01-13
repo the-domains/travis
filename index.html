@@ -1,4 +1,4 @@
-<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Designing the future of Tech, Energy, National Security, and Advanced Manufacturing - Travis</title><link href="rss.xml" title="Designing the future of Tech, Energy, National Security, and Advanced Manufacturing feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.16.25"><meta name="the-grid-solution" content="2230ad93-0872-4cfd-9955-5c9a5abed803"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
+<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Designing the future of Tech, Energy, National Security, and Advanced Manufacturing - Travis</title><link href="rss.xml" title="Designing the future of Tech, Energy, National Security, and Advanced Manufacturing feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.17.3"><meta name="the-grid-solution" content="7438a22e-e233-4630-8de5-8bd65418e420"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
 @media (min-width: 15.6875em)and (max-width: 15.75em){	html{font-size:3.28125em !important}}
 @media (min-width: 15.8125em)and (max-width: 16.25em){	html{font-size:3.375em !important}}
 @media (min-width: 16.3125em)and (max-width: 16.6875em){html{font-size:3.46875em !important}}
@@ -202,6 +202,14 @@ body {
 }
 .stack {
   z-index: 1;
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+}
+.group,
+.aside,
+.decoration {
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
 }
 picture {
   display: inline-block;
@@ -250,6 +258,9 @@ a:active {
   transition: color 0.1s ease-in, background-color 0.1s ease-out;
   -webkit-transition: color 0.1s ease-in, background-color 0.1s ease-out;
 }
+a.aside {
+  display: inline-block;
+}
 html.exporting a {
   transition: none;
 }
@@ -259,11 +270,21 @@ html.exporting a {
 .media > a {
   display: inline-block;
 }
+.media iframe {
+  transition: 0.3s opacity ease-in;
+  -webkit-transition: 0.3s opacity ease-in;
+}
 h1 a,
 h2 a,
 h3 a {
   font-weight: inherit;
   letter-spacing: inherit;
+}
+a {
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -moz-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .text-decoration {
   -webkit-box-decoration-break: clone;
@@ -277,36 +298,50 @@ h3 a {
   margin-left: 1.5em;
 }
 .decoration {
-  position: relative;
   pointer-events: none;
+}
+.svg {
+  position: relative;
   background-color: currentColor;
 }
-.decoration > svg {
+.svg > svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.decoration.connector > svg {
+.svg.connector > svg {
   width: 109%;
   height: 109%;
   margin-left: -2%;
 }
-.decoration path,
-.decoration ellipse,
-.decoration rect,
-.decoration polygon,
-.decoration circle {
+.svg path,
+.svg ellipse,
+.svg rect,
+.svg polygon,
+.svg circle {
   fill: currentColor;
 }
-.decoration mpath,
-.decoration line,
-.decoration polyline {
+.svg mpath,
+.svg line,
+.svg polyline {
   stroke: currentColor;
 }
-.svg.decoration {
+.svg {
   background-color: transparent;
+}
+.revealed .play.svg:after {
+  display: block;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -20px;
+  background-color: currentColor;
+  content: "";
 }
 .colors-style-aside-border .publisher,
 .colors-style-aside-border .author {
@@ -490,7 +525,8 @@ ul {
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.244rem; position: absolute; top: 1.224rem; left: 0.244rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-mobile#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-mobile{height: 0.204rem; width: 0.204rem; position: absolute; top: 0.974rem; left: 0.244rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-mobile#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-mobile{width: 0.684rem; height: 0.154rem; position: absolute; top: 3.484rem; left: 2.074rem;}
-#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); color: rgb(250, 203, 147); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical :hover.media.cover { color: rgb(34, 29, 28); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline { color: rgb(253, 232, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline a:hover { color: rgb(244, 229, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .text.paragraph { color: rgb(237, 245, 247); }
@@ -520,7 +556,8 @@ ul {
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution{font-size: 0.134rem; line-height: 0.204rem; width: 4.244rem; position: absolute; left: 0.244rem; top: 4.384rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher{font-size: 0.134rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.204rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-mobile#u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-mobile{width: 0.684rem; height: 0.154rem; position: absolute; top: 3.524rem; left: 2.074rem;}
-#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); color: rgb(247, 164, 26); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical :hover.media.cover { color: rgb(46, 40, 31); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline { color: rgb(255, 251, 204); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline a:hover { color: rgb(239, 214, 167); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .text.paragraph { color: rgb(229, 237, 255); }
@@ -658,7 +695,8 @@ display: none;
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 6.124rem; position: absolute; top: 1.494rem; left: 0.364rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-mobile#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-mobile{height: 0.304rem; width: 0.304rem; position: absolute; top: 1.124rem; left: 0.364rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-mobile#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-mobile{width: 1.014rem; height: 0.224rem; position: absolute; top: 4.774rem; left: 3.104rem;}
-#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); color: rgb(250, 203, 147); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical :hover.media.cover { color: rgb(34, 29, 28); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline { color: rgb(253, 232, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline a:hover { color: rgb(244, 229, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .text.paragraph { color: rgb(237, 245, 247); }
@@ -688,7 +726,8 @@ display: none;
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution{font-size: 0.134rem; line-height: 0.204rem; width: 6.124rem; position: absolute; left: 0.364rem; top: 3.294rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher{font-size: 0.134rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.204rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-mobile#u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-mobile{width: 1.014rem; height: 0.224rem; position: absolute; top: 4.774rem; left: 3.104rem;}
-#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); color: rgb(247, 164, 26); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical :hover.media.cover { color: rgb(46, 40, 31); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline { color: rgb(255, 251, 204); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline a:hover { color: rgb(239, 214, 167); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .text.paragraph { color: rgb(229, 237, 255); }
@@ -821,7 +860,8 @@ display: none;
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 3.854rem; position: absolute; top: 1.674rem; left: 0.484rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-desktop#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-desktop{height: 0.204rem; width: 0.204rem; position: absolute; left: 2.304rem; top: 1.374rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop{width: 0.154rem; height: 0.684rem; position: absolute; left: 4.664rem; top: 1.954rem;}
-#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); color: rgb(250, 203, 147); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical :hover.media.cover { color: rgb(34, 29, 28); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline { color: rgb(253, 232, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline a:hover { color: rgb(244, 229, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .text.paragraph { color: rgb(237, 245, 247); }
@@ -852,7 +892,8 @@ display: none;
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution{font-size: 0.134rem; line-height: 0.204rem; width: 3.844rem; position: absolute; left: 0.484rem; top: 3.514rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher{font-size: 0.134rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.204rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop#u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop{width: 0.154rem; height: 0.684rem; position: absolute; left: 4.804rem; top: 2.734rem;}
-#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); color: rgb(247, 164, 26); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical :hover.media.cover { color: rgb(46, 40, 31); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline { color: rgb(255, 251, 204); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline a:hover { color: rgb(239, 214, 167); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .text.paragraph { color: rgb(229, 237, 255); }
@@ -986,7 +1027,8 @@ display: none;
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 5.764rem; position: absolute; top: 2.994rem; left: 0.724rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-desktop#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-desktop{height: 0.304rem; width: 0.304rem; position: absolute; left: 3.454rem; top: 2.544rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop{width: 0.224rem; height: 1.014rem; position: absolute; left: 6.994rem; top: 2.924rem;}
-#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); color: rgb(250, 203, 147); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical :hover.media.cover { color: rgb(34, 29, 28); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline { color: rgb(253, 232, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline a:hover { color: rgb(244, 229, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .text.paragraph { color: rgb(237, 245, 247); }
@@ -1017,7 +1059,8 @@ display: none;
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution{font-size: 0.134rem; line-height: 0.204rem; width: 5.764rem; position: absolute; left: 0.724rem; top: 3.034rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher{font-size: 0.134rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.204rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop#u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop{width: 0.224rem; height: 1.014rem; position: absolute; left: 7.204rem; top: 2.924rem;}
-#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); color: rgb(247, 164, 26); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical :hover.media.cover { color: rgb(46, 40, 31); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline { color: rgb(255, 251, 204); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline a:hover { color: rgb(239, 214, 167); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .text.paragraph { color: rgb(229, 237, 255); }
@@ -1151,7 +1194,8 @@ display: none;
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph{font-size: 0.204rem; line-height: 0.304rem; width: 7.204rem; position: absolute; top: 3.734rem; left: 0.904rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-cinema#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-cinema{height: 0.384rem; width: 0.384rem; position: absolute; left: 4.324rem; top: 3.184rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-cinema#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-cinema{width: 0.274rem; height: 1.264rem; position: absolute; left: 8.734rem; top: 3.654rem;}
-#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); color: rgb(250, 203, 147); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical :hover.media.cover { color: rgb(34, 29, 28); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline { color: rgb(253, 232, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline a:hover { color: rgb(244, 229, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .text.paragraph { color: rgb(237, 245, 247); }
@@ -1182,7 +1226,8 @@ display: none;
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution{font-size: 0.164rem; line-height: 0.244rem; width: 7.204rem; position: absolute; left: 0.904rem; top: 3.984rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher{font-size: 0.164rem; padding-left: 0.104rem; padding-right: 0.104rem; line-height: 0.244rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-cinema#u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-cinema{width: 0.274rem; height: 1.264rem; position: absolute; left: 9rem; top: 3.744rem;}
-#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); color: rgb(247, 164, 26); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical :hover.media.cover { color: rgb(46, 40, 31); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline { color: rgb(255, 251, 204); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline a:hover { color: rgb(239, 214, 167); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .text.paragraph { color: rgb(229, 237, 255); }
@@ -1316,7 +1361,8 @@ display: none;
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-t-paragraph{font-size: 0.154rem; line-height: 0.234rem; width: 7.204rem; position: absolute; top: 3.814rem; left: 0.904rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-cinema#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-textual-d-separator-cinema{height: 0.384rem; width: 0.384rem; position: absolute; left: 4.324rem; top: 3.254rem;}
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-cinema#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-cinema{width: 0.274rem; height: 1.264rem; position: absolute; left: 8.734rem; top: 3.654rem;}
-#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical > .media.cover { background-image: linear-gradient(rgb(26, 23, 22), rgb(250, 203, 147)); color: rgb(250, 203, 147); }
+#u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.graphical :hover.media.cover { color: rgb(34, 29, 28); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline { color: rgb(253, 232, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .title.headline a:hover { color: rgb(244, 229, 206); }
 #u-285c304f-3d64-4f76-8b5a-031cd61a73e9#u-285c304f-3d64-4f76-8b5a-031cd61a73e9 .group.textual > .text.paragraph { color: rgb(237, 245, 247); }
@@ -1347,7 +1393,8 @@ display: none;
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution{font-size: 0.124rem; line-height: 0.184rem; width: 7.204rem; position: absolute; left: 0.904rem; top: 3.864rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher#u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher{font-size: 0.124rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.184rem;}
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-cinema#u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-cinema{width: 0.274rem; height: 1.264rem; position: absolute; left: 9rem; top: 3.654rem;}
-#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical > .media.cover { background-image: linear-gradient(rgb(32, 28, 21), rgb(247, 164, 26)); color: rgb(247, 164, 26); }
+#u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.graphical :hover.media.cover { color: rgb(46, 40, 31); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline { color: rgb(255, 251, 204); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .title.headline a:hover { color: rgb(239, 214, 167); }
 #u-f385a87f-92d3-43ba-99bf-12c66322c08a#u-f385a87f-92d3-43ba-99bf-12c66322c08a .group.textual > .text.paragraph { color: rgb(229, 237, 255); }
@@ -1442,7 +1489,7 @@ display: none;
 	c4.3,42.7,40.6,75.7,83.7,75.7c43,0,78.6-33.6,83.6-75.7h110.2V387.5z M296.7,328.8c33.7,0,62.4,25.3,66.6,58.7H230.1
 	C234.3,354.2,262.9,328.8,296.7,328.8z M296.7,463.2c-34.5,0-62.5-25.3-66.6-58.7h133.2C359,437.8,330.4,463.2,296.7,463.2z"/>
 </svg>
-</div></div></article><article subject="stack" class="col-1 export-linebreaks uninverted vertical line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full aspect_natural decorations_bio stack graphical_textual ii graphical textual w_decoration w_cover w_media media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_paragraph w_text w_separator w_short_headline w_short_title w_short_paragraph w_short_text stack graphical_textual" itemid="285c304f-3d64-4f76-8b5a-031cd61a73e9" itemtype="article" diff_index="7" index="graphical_textual" kind="stack" score="8.625" missed="0.375" tag="article" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9"><div kind="group" index="graphical" class="group graphical group graphical" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-graphical"><a kind="media" index="cover" class="vfld media cover vfld-leader vfld-trailer media cover" specificity="0.25" itemprop="cover" max-width="4096" max-height="3040" href="https://s3-us-west-2.amazonaws.com/the-grid-img/p/fdda9147f73fab18c534ac972f26eef7b1e32455.jpg" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-graphical-m-cover"><picture id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-graphical-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/02ed6fb0ad5fd2cd877dbad22a2cccc9/insta_brannan.jpg?height=675&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=909, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/b61ee59d08cf8e71f6d3f896f7bd3880/insta_brannan.jpg?height=1350&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1818 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ce51a28226ea2cd79f0511cc3948274f/insta_brannan.jpg?height=676&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=910, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ac4c22f90034b5400a7f0269f8fd1c86/insta_brannan.jpg?height=1352&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1820 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ac9ffd8b3744deebf4927195a14c035b/insta_brannan.jpg?height=361&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=487, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/17a6265dcb47e08d45eea2e5d9800d9b/insta_brannan.jpg?height=722&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=974 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/b4d3d6be71f0c060c2a1bdc8aa138604/insta_brannan.jpg?height=541&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=728, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/eedda1b34270edfc9e19c3777e5c96c5/insta_brannan.jpg?height=1082&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1456 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/2b871384e15ad89e6ef49d8f6275d64e/insta_brannan.jpg?height=351&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=474, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ccd079878f2e4f24fad962407f45cde8/insta_brannan.jpg?height=702&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=948 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/5acae0b6c6cdc0ff52d93fc7316ef882/insta_brannan.jpg?height=508&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=685, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/16a2d7cb1080d0aabf55895d92e9514b/insta_brannan.jpg?height=1016&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1370 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></div><div kind="decoration" index="connector" class="decoration connector decoration connector svg" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop"><?xml version="1.0" encoding="utf-8"?>
+</div></div></article><article subject="stack" class="col-1 export-linebreaks uninverted vertical line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full aspect_natural decorations_bio stack graphical_textual ii graphical textual w_decoration w_cover w_media media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_paragraph w_text w_separator w_short_headline w_short_title w_short_paragraph w_short_text stack graphical_textual" itemid="285c304f-3d64-4f76-8b5a-031cd61a73e9" itemtype="article" diff_index="8" index="graphical_textual" kind="stack" score="8.625" missed="0.375" tag="article" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9"><div kind="group" index="graphical" class="group graphical group graphical" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-graphical"><a kind="media" index="cover" class="vfld media cover vfld-leader vfld-trailer media cover" specificity="0.25" itemprop="cover" max-width="4096" max-height="3040" href="https://s3-us-west-2.amazonaws.com/the-grid-img/p/fdda9147f73fab18c534ac972f26eef7b1e32455.jpg" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-graphical-m-cover"><picture id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-g-graphical-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/02ed6fb0ad5fd2cd877dbad22a2cccc9/insta_brannan.jpg?height=675&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=909, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/b61ee59d08cf8e71f6d3f896f7bd3880/insta_brannan.jpg?height=1350&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1818 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ce51a28226ea2cd79f0511cc3948274f/insta_brannan.jpg?height=676&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=910, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ac4c22f90034b5400a7f0269f8fd1c86/insta_brannan.jpg?height=1352&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1820 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ac9ffd8b3744deebf4927195a14c035b/insta_brannan.jpg?height=361&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=487, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/17a6265dcb47e08d45eea2e5d9800d9b/insta_brannan.jpg?height=722&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=974 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/b4d3d6be71f0c060c2a1bdc8aa138604/insta_brannan.jpg?height=541&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=728, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/eedda1b34270edfc9e19c3777e5c96c5/insta_brannan.jpg?height=1082&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1456 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/2b871384e15ad89e6ef49d8f6275d64e/insta_brannan.jpg?height=351&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=474, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/ccd079878f2e4f24fad962407f45cde8/insta_brannan.jpg?height=702&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=948 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/5acae0b6c6cdc0ff52d93fc7316ef882/insta_brannan.jpg?height=508&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=685, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/16a2d7cb1080d0aabf55895d92e9514b/insta_brannan.jpg?height=1016&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2Ffdda9147f73fab18c534ac972f26eef7b1e32455.jpg&width=1370 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></div><div kind="decoration" index="connector" class="decoration connector decoration connector svg" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop"><?xml version="1.0" encoding="utf-8"?>
 
 <svg preserveAspectRatio="none" id="u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-desktop-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-118 291 50 212" enable-background="new -118 291 50 212" xml:space="preserve">
@@ -1480,7 +1527,7 @@ display: none;
 	</g>
 </g>
 </svg>
-</div></article><article subject="stack" class="col-1 export-linebreaks uninverted vertical line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full aspect_natural decorations_bio stack graphical_textual ii last_stack graphical textual w_decoration w_cover w_media media_gte_narrow media_gte_half media_gte_wide media_lt_full media_landscape crop_true w_headline w_title w_paragraph w_text w_list w_data w_separator w_attribution w_aside w_medium_headline w_medium_title w_short_paragraph w_short_text w_short_list w_short_data w_publisher stack graphical_textual" itemid="f385a87f-92d3-43ba-99bf-12c66322c08a" itemtype="article" diff_index="7" index="graphical_textual" kind="stack" score="10.25" missed="0.25" tag="article" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a"><div kind="group" index="graphical" class="group graphical group graphical" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-graphical"><a kind="media" index="cover" class="vfld media cover vfld-leader vfld-trailer media cover" specificity="0.25" itemprop="cover" max-width="1024" max-height="768" href="secretary-carter-and-building-relationships-in-tech/" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-graphical-m-cover"><picture id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-graphical-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/4ea47aadca809a63cdf98573a3567116/passthrough.jpg?height=694&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=925, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/886f7de227d493b68571640e6722a8a9/passthrough.jpg?height=676&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=901, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/865eeb881153e8329888231bbc2594d4/passthrough.jpg?height=517&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=689, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/cc50e5b90b7b6fe6b7d8ed7a4d375f98/passthrough.jpg?height=541&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=721, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/31009f2c04ea5002dd724ae17b978229/passthrough.jpg?height=354&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=472, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/34283851f7622c2e55303fc14081598b/passthrough.jpg?height=708&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=944 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/2aeeee24ad5769388bf4c4259c19d463/passthrough.jpg?height=513&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=684, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></div><div kind="decoration" index="connector" class="decoration connector decoration connector svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop"><?xml version="1.0" encoding="utf-8"?>
+</div></article><article subject="stack" class="col-1 export-linebreaks uninverted vertical line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full aspect_natural decorations_bio stack graphical_textual ii last_stack graphical textual w_aside w_decoration w_cover w_media media_gte_narrow media_gte_half media_gte_wide media_lt_full media_landscape crop_true w_headline w_title w_paragraph w_text w_list w_data w_separator w_attribution w_medium_headline w_medium_title w_short_paragraph w_short_text w_short_list w_short_data w_publisher stack graphical_textual" itemid="f385a87f-92d3-43ba-99bf-12c66322c08a" itemtype="article" diff_index="8" index="graphical_textual" kind="stack" score="10.25" missed="0.25" tag="article" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a"><div kind="group" index="graphical" class="group graphical group graphical" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-graphical"><a kind="media" index="cover" class="vfld media cover vfld-leader vfld-trailer media cover" specificity="0.25" itemprop="cover" max-width="1024" max-height="768" href="secretary-carter-and-building-relationships-in-tech/" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-graphical-m-cover"><picture id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-graphical-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/4ea47aadca809a63cdf98573a3567116/passthrough.jpg?height=694&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=925, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/886f7de227d493b68571640e6722a8a9/passthrough.jpg?height=676&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=901, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/865eeb881153e8329888231bbc2594d4/passthrough.jpg?height=517&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=689, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/cc50e5b90b7b6fe6b7d8ed7a4d375f98/passthrough.jpg?height=541&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=721, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/31009f2c04ea5002dd724ae17b978229/passthrough.jpg?height=354&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=472, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/34283851f7622c2e55303fc14081598b/passthrough.jpg?height=708&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=944 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/2aeeee24ad5769388bf4c4259c19d463/passthrough.jpg?height=513&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=684, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/e0f57ce916f632c552b7275964b74cfd/passthrough.jpg?height=768&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F62fd2a9d16ae3eb9912724d250325d10adb2c969.jpg&width=1024 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></div><div kind="group" index="textual" class="group textual group textual" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual"><h1 kind="title" index="headline" class="medium medium_headline medium_title title headline vfld-leader title headline" specificity="0.25" itemprop="title" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-t-headline"><a class="text-decoration" href="secretary-carter-and-building-relationships-in-tech/" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-t-headline-a">Secretary Carter and <wbr class="w480"></wbr>Building <wbr class="w480 w481 w960"></wbr>Relationships in Tech</a></h1><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph text paragraph" specificity="0.25" itemprop="text" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-t-paragraph"><p><span class="first-letter">P</span>resident Obama and Secretary of Defense Carter are both <wbr class="w960"></wbr>in the <wbr class="w480"></wbr>news today touting<wbr class="w1799"></wbr> <wbr class="w481 w961"></wbr>entrepreneurship, and how it <wbr class="w1800"></wbr>can<wbr class="w960"></wbr> transform <wbr class="w480"></wbr>the economy and the military, <wbr class="w1799"></wbr>respectively. </p></div><div kind="decoration" index="separator" class="decoration separator decoration separator svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-separator-desktop"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-8dfcf094-b528-4311-9400-e0119fcc232d-g-figure-d-separator-desktop-svg"></use></svg></div><div kind="decoration" index="separator" class="decoration separator decoration separator svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-separator-cinema"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-8dfcf094-b528-4311-9400-e0119fcc232d-g-figure-d-separator-cinema-svg"></use></svg></div><ul kind="data" index="list" class="short short_list short_data data list vfld-trailer data list" specificity="0.25" itemprop="list" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-list"><li data-grid-id="85edff50-958d-4607-9b47-9767c02bbec8">Department of Defense Head Ashton Carter Enlists <wbr class="w960"></wbr>Silicon <wbr class="w480"></wbr>Valley to Transform the <wbr class="w961 w1799"></wbr>Military: <a data-grid-id="5ade9b89-bcaf-4f59-b76b-5616a2b8debd" href="http://www.wired.com/2015/11/secretary-of-defense-ashton-carter/"><wbr class="w480 w481 w960 w1800"></wbr>http://www.wired.com/2015/11/secretary-of-defense-<wbr class="w960"></wbr>ashton-<wbr class="w480"></wbr>carter/</a></li></ul><div kind="decoration" index="separator" class="decoration separator decoration separator svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-separator-mobile"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-8dfcf094-b528-4311-9400-e0119fcc232d-g-figure-d-separator-mobile-svg"></use></svg></div><div kind="aside" index="attribution" class="aside attribution aside attribution" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution"><a kind="aside" index="publisher" class="text-decoration aside publisher aside publisher" href="http://www.wired.com/2015/11/secretary-of-defense-ashton-carter/" itemprop="publisher" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher">Wired Magazine</a></div></div><div kind="decoration" index="connector" class="decoration connector decoration connector svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop"><?xml version="1.0" encoding="utf-8"?>
 
 <svg preserveAspectRatio="none" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-desktop-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-118 291 50 212" enable-background="new -118 291 50 212" xml:space="preserve">
@@ -1506,7 +1553,7 @@ display: none;
 	</g>
 </g>
 </svg>
-</div><div kind="group" index="textual" class="group textual group textual" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual"><h1 kind="title" index="headline" class="medium medium_headline medium_title title headline vfld-leader title headline" specificity="0.25" itemprop="title" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-t-headline"><a class="text-decoration" href="secretary-carter-and-building-relationships-in-tech/" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-t-headline-a">Secretary Carter and <wbr class="w480"></wbr>Building <wbr class="w480 w481 w960"></wbr>Relationships in Tech</a></h1><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph text paragraph" specificity="0.25" itemprop="text" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-t-paragraph"><p><span class="first-letter">P</span>resident Obama and Secretary of Defense Carter are both <wbr class="w960"></wbr>in the <wbr class="w480"></wbr>news today touting<wbr class="w1799"></wbr> <wbr class="w481 w961"></wbr>entrepreneurship, and how it <wbr class="w1800"></wbr>can<wbr class="w960"></wbr> transform <wbr class="w480"></wbr>the economy and the military, <wbr class="w1799"></wbr>respectively. </p></div><div kind="decoration" index="separator" class="decoration separator decoration separator svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-separator-desktop"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-8dfcf094-b528-4311-9400-e0119fcc232d-g-figure-d-separator-desktop-svg"></use></svg></div><div kind="decoration" index="separator" class="decoration separator decoration separator svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-separator-cinema"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-8dfcf094-b528-4311-9400-e0119fcc232d-g-figure-d-separator-cinema-svg"></use></svg></div><ul kind="data" index="list" class="short short_list short_data data list vfld-trailer data list" specificity="0.25" itemprop="list" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-list"><li data-grid-id="85edff50-958d-4607-9b47-9767c02bbec8">Department of Defense Head Ashton Carter Enlists <wbr class="w960"></wbr>Silicon <wbr class="w480"></wbr>Valley to Transform the <wbr class="w961 w1799"></wbr>Military: <a data-grid-id="5ade9b89-bcaf-4f59-b76b-5616a2b8debd" href="http://www.wired.com/2015/11/secretary-of-defense-ashton-carter/"><wbr class="w480 w481 w960 w1800"></wbr>http://www.wired.com/2015/11/secretary-of-defense-<wbr class="w960"></wbr>ashton-<wbr class="w480"></wbr>carter/</a></li></ul><div kind="decoration" index="separator" class="decoration separator decoration separator svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-d-separator-mobile"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-8dfcf094-b528-4311-9400-e0119fcc232d-g-figure-d-separator-mobile-svg"></use></svg></div><div kind="aside" index="attribution" class="aside attribution aside attribution" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution"><a kind="aside" index="publisher" class="text-decoration aside publisher aside publisher" href="http://www.wired.com/2015/11/secretary-of-defense-ashton-carter/" itemprop="publisher" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-g-textual-a-attribution-a-publisher">Wired Magazine</a></div></div><div kind="decoration" index="connector" class="decoration connector decoration connector svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-mobile"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-mobile-svg"></use></svg></div></article><article subject="panel" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_decoration w_headline w_title w_long_headline w_long_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate-g-heading"><h1 kind="title" index="headline" class="long long_headline long_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate-g-heading-t-headline"><a class="text-decoration" href="rss.xml" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate-g-heading-t-headline-a">Designing the future of Tech, <wbr class="w480"></wbr>Energy, <wbr class="w481"></wbr>National Security, and <wbr class="w480 w960"></wbr>Advanced <wbr class="w481"></wbr>Manufacturing feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title w_list w_data w_short_list w_short_data layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i first_layout last_layout opener layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_headline w_title w_paragraph w_text w_separator w_decoration w_leader w_trailer w_medium_headline w_medium_title w_short_paragraph w_short_text w_cover w_media w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_short_headline w_short_title media_lt_full w_list w_data w_attribution w_aside w_short_list w_short_data w_publisher layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles w_texts w_separators layout one i first_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3-l-one-2"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i last_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3-l-one-3"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-4-l-one"></div><style id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-color">body{background-color: rgba(250, 249, 248, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title w_list w_data w_short_list w_short_data layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i first_layout last_layout opener layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_headline w_title w_paragraph w_text w_separator w_decoration w_leader w_trailer w_medium_headline w_medium_title w_short_paragraph w_short_text w_cover w_media w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_short_headline w_short_title media_lt_full w_list w_data w_attribution w_aside w_short_list w_short_data w_publisher layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles w_texts w_separators layout one i first_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3-l-one-2"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i last_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3-l-one-3"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-4-l-one"></div><style id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-color">body{background-color: rgba(250, 249, 248, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+</div><div kind="aside" index="aside" class="aside aside aside aside" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-a-aside"><a kind="aside" index="publisher" class="text-decoration aside publisher aside publisher" href="http://www.wired.com/2015/11/secretary-of-defense-ashton-carter/" itemprop="publisher" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-a-aside-a-publisher">Wired Magazine</a></div><div kind="decoration" index="connector" class="decoration connector decoration connector svg" id="u-f385a87f-92d3-43ba-99bf-12c66322c08a-d-connector-mobile"><svg viewBox="0 0 72 72" preserveAspectRatio="none"><use xlink:href="#u-285c304f-3d64-4f76-8b5a-031cd61a73e9-d-connector-mobile-svg"></use></svg></div></article><article subject="panel" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_decoration w_headline w_title w_long_headline w_long_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate-g-heading"><h1 kind="title" index="headline" class="long long_headline long_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate-g-heading-t-headline"><a class="text-decoration" href="rss.xml" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-alternate-g-heading-t-headline-a">Designing the future of Tech, <wbr class="w480"></wbr>Energy, <wbr class="w481"></wbr>National Security, and <wbr class="w480 w960"></wbr>Advanced <wbr class="w481"></wbr>Manufacturing feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title w_list w_data w_short_list w_short_data layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i first_layout last_layout opener layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_headline w_title w_paragraph w_text w_separator w_decoration w_leader w_trailer w_medium_headline w_medium_title w_short_paragraph w_short_text w_cover w_media w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_short_headline w_short_title media_lt_full w_list w_data w_attribution w_aside w_short_list w_short_data w_publisher layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles w_texts w_separators layout one i first_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3-l-one-2"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i last_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-3-l-one-3"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-desktop-l-one-4-l-one"></div><style id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-color">body{background-color: rgba(250, 249, 248, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title w_list w_data w_short_list w_short_data layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i first_layout last_layout opener layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_headline w_title w_paragraph w_text w_separator w_decoration w_leader w_trailer w_medium_headline w_medium_title w_short_paragraph w_short_text w_cover w_media w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_short_headline w_short_title media_lt_full w_list w_data w_attribution w_aside w_short_list w_short_data w_publisher layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles w_texts w_separators layout one i first_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3-l-one-2"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles w_texts w_separators layout one i last_layout feed layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-3-l-one-3"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_long_headline w_long_title layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-cinema-l-one-4-l-one"></div><style id="u-f3babb5e-0c2f-4179-9e28-76ac7485ff4e-color">body{background-color: rgba(250, 249, 248, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*! Hammer.JS - v1.1.3 - 2014-05-20
  * http://eightmedia.github.io/hammer.js
  *
@@ -2033,9 +2080,11 @@ global.Hamburger = require('./hamburger');
 
 global.Highlighter = require('./highlighter');
 
+global.Player = require('./player');
+
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
+},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"./player":8,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
 var appendPage, mainpage, page, ref, ref1, urls;
 
 page = require('./reflow');
@@ -2136,7 +2185,192 @@ module.exports = function() {
 };
 
 
-},{"./reflow":8}],8:[function(require,module,exports){
+},{"./reflow":9}],8:[function(require,module,exports){
+var Player, Youtube, iframe, revealed, rgb2hex;
+
+iframe = null;
+
+Youtube = null;
+
+Player = function(id, src, width, height, color, bg) {
+  if (src.indexOf('youtube') > -1) {
+    src += '&color=white&theme=light&modestbranding=1';
+  }
+  src = src.replace('COLOR', color).replace('BG', bg);
+  if (location.protocol !== 'https:') {
+    src = src.replace('https:', 'http:');
+  }
+  iframe = document.createElement('iframe');
+  iframe.id = id;
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.src = src;
+  iframe.width = width;
+  iframe.height = height;
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.left = 0;
+  iframe.style.right = 0;
+  iframe.style.position = 'absolute';
+  iframe.style.opacity = 0.2;
+  iframe.onload = function() {
+    return iframe.style.opacity = 1;
+  };
+  return iframe;
+};
+
+revealed = null;
+
+Player.reveal = function(iframe) {
+  var diff, i, left, len, parent, play, ref, ref1, sibling, target, top, translateX, translateY;
+  while (target = (target || iframe).parentNode) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (target.parentNode.classList.contains('group')) {
+        parent = target.parentNode;
+      } else {
+        parent = target;
+      }
+      revealed = iframe;
+      play = parent.getElementsByClassName('play')[0];
+      left = target.offsetWidth - play.offsetLeft - play.offsetWidth;
+      top = -play.offsetTop;
+      play.style.webkitTransformOrigin = 'top right';
+      play.style.webkitTransform = 'translateX(' + left + 'px) translateY(' + top + 'px) scale(0.5)';
+      target.classList.add('revealed');
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        if (sibling.nodeType === 1 && sibling !== parent) {
+          translateX = translateY = null;
+          if ((diff = sibling.offsetLeft + sibling.offsetWidth - parent.offsetLeft) > 2 && parent.offsetLeft >= sibling.offsetLeft) {
+            translateX = -diff;
+          }
+          if ((diff = target.offsetLeft + target.offsetWidth - sibling.offsetLeft) > 2 && parent.offsetLeft <= sibling.offsetLeft) {
+            if (!translateX || Math.abs(diff) < Math.abs(translateX)) {
+              translateX = diff;
+            }
+          }
+          if ((diff = sibling.offsetTop + sibling.offsetHeight - parent.offsetTop) > 2 && parent.offsetTop >= sibling.offsetTop) {
+            translateY = -diff;
+          }
+          if ((diff = target.offsetTop + target.offsetHeight - sibling.offsetTop) > 2 && parent.offsetTop <= sibling.offsetTop) {
+            if (!translateY || Math.abs(diff) < Math.abs(translateY)) {
+              translateY = diff;
+            }
+          }
+          if (Math.abs(translateX) > Math.abs(translateY)) {
+            sibling.style.webkitTransform = 'translateY(' + translateY + 'px)';
+          } else {
+            sibling.style.webkitTransform = 'translateX(' + translateX + 'px)';
+          }
+          console.log(translateX, translateY, sibling);
+        }
+      }
+    }
+  }
+};
+
+Player.hide = function(iframe) {
+  var i, len, parent, play, ref, ref1, sibling;
+  while (parent = (parent || iframe).parentNode) {
+    if ((ref = parent.classList) != null ? ref.contains('revealed') : void 0) {
+      parent.classList.remove('revealed');
+      if (parent.parentNode.classList.contains('group')) {
+        parent = parent.parentNode;
+      }
+      play = parent.getElementsByClassName('play')[0];
+      play.style.webkitTransform = '';
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        sibling.style.webkitTransform = '';
+      }
+    }
+  }
+  return revealed = null;
+};
+
+window.addEventListener('resize', function() {
+  return setTimeout(function() {
+    return requestAnimationFrame(function() {
+      if (revealed) {
+        if (revealed.offsetWidth) {
+          return Player.reveal(revealed);
+        } else {
+          return Player.stop(revealed);
+        }
+      }
+    });
+  }, 10);
+});
+
+Player.stop = function(iframe) {
+  var old;
+  old = iframe;
+  iframe.style.opacity = 0;
+  setTimeout(function() {
+    var ref;
+    return (ref = old.parentNode) != null ? ref.removeChild(old) : void 0;
+  }, 300);
+  Player.hide(iframe);
+  return iframe = null;
+};
+
+document.addEventListener('click', function(e) {
+  var bg, color, header, parent, play, ref, ref1, results, styles, target;
+  target = e.target;
+  results = [];
+  while (target) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (play = target.getElementsByClassName('play')[0]) {
+        if ((iframe != null ? iframe.parentNode : void 0) === target) {
+          Player.stop(iframe);
+        } else {
+          if (iframe) {
+            Player.stop(iframe);
+          }
+          color = bg = null;
+          header = (ref1 = target.parentNode.parentNode.getElementsByClassName('title')[0]) != null ? ref1.firstChild : void 0;
+          parent = header || play;
+          while (parent) {
+            if (parent.nodeType === 1) {
+              styles = window.getComputedStyle(parent);
+              if (styles.color.indexOf('rgba') === -1 || !styles.color.match(/,\s*0\)/)) {
+                if (color == null) {
+                  color = styles.color;
+                }
+              }
+              if (styles['background-color'].indexOf('rgba') === -1 || !styles['background-color'].match(/,\s*0\)/)) {
+                if (bg == null) {
+                  bg = styles['background-color'];
+                }
+              }
+            }
+            parent = parent.parentNode;
+          }
+          iframe = Player(play.id + '-player', play.getAttribute('data-src'), play.getAttribute('data-width'), play.getAttribute('data-height'), rgb2hex(color), rgb2hex(bg));
+          target.appendChild(iframe);
+          Player.reveal(iframe);
+        }
+        e.preventDefault();
+        break;
+      }
+    }
+    results.push(target = target.parentNode);
+  }
+  return results;
+});
+
+rgb2hex = function(rgb) {
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  if (rgb && rgb.length === 4) {
+    return ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2);
+  }
+};
+
+window.exports = window.Player = Player;
+
+
+},{}],9:[function(require,module,exports){
 module.exports = {
   reflow: function(container) {
     var counter, heights, hidden, hole, holed, holes, i, id, ids, index, j, k, l, last, layout, layouts, len, len1, len2, len3, m, mutations, name, node, ref, ref1, ref2, stack, stacks;
@@ -2401,7 +2635,7 @@ module.exports = function(callback) {
   } else {
     protocol = '';
   }
-  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.4/gss.document.parser.js";
+  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.8/gss.document.parser.js";
   if (location.toString().indexOf('//localhost:8080') > -1) {
     return module.exports.load(protocol + "//localhost:8080/node_modules/gss-document/dist/gss.document.parser.js", callback, function() {
       return module.exports.load(url, callback);
